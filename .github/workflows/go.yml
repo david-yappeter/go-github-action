@@ -22,3 +22,10 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+    - name: Push to built gh-pages branch
+      uses: Automattic/action-commit-to-branch@master
+      with:
+        branch: 'gh-pages'
+        commit_message: 'Success Build from master'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required
