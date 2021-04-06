@@ -32,8 +32,8 @@ jobs:
     - run: git fetch origin
     - run: git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
     - run: git config --global user.name "$GITHUB_ACTOR"
-    - run: git add .
-    - run: git commit -m "push from github action"
+    # - run: git add .
+    # - run: git commit -m "push from github action"
     - run: git push origin {{env.push_to_branch}}
     # - name: Push to built gh-pages branch
     #   uses: Automattic/action-commit-to-branch@master
