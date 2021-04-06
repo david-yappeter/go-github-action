@@ -21,13 +21,13 @@ jobs:
         go-version: 1.15
 
     - name: Build
-      run: go build -v ./... -o app
+      run: go build -v ./...
 
     - name: Test
       run: go test -v ./...
     
     - name: Remove Build
-      run: rm ./app
+      run: rm ./myapp
 
     - run: git add .
     - run: git commit -m "push from github action"
