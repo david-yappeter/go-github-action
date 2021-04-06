@@ -6,12 +6,10 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  push_to_branch: "gh-pages"
-
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
 
@@ -34,7 +32,10 @@ jobs:
     - run: git config --global user.name "$GITHUB_ACTOR"
     # - run: git add .
     # - run: git commit -m "push from github action"
-    - run: git push origin {{env.push_to_branch}}
+    - run: git push origin $TO_BRANCH
+      env:
+        TO_BRANCH: "gh-pages"
+        
     # - name: Push to built gh-pages branch
     #   uses: Automattic/action-commit-to-branch@master
     #   with:
