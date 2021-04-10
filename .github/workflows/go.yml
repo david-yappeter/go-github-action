@@ -33,6 +33,7 @@ jobs:
     - run: git remote -v
     - run: git branch
     - run: git checkout gh-pages
+    - run: git pull origin gh-pages
     - run: git pull . master --allow-unrelated-histories
     - run: git push -u origin gh-pages
     #   env:
