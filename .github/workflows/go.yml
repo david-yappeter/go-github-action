@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
 
@@ -22,3 +23,25 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+    
+    - name: Remove Build
+      run: rm ./myapp
+
+    - run: git remote update
+    - run: git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+    - run: git config --global user.name "$GITHUB_ACTOR"
+    - run: git remote -v
+    - run: git branch
+    - run: git checkout gh-pages
+    - run: git pull . master --allow-unrelated-histories
+    - run: git push -u origin gh-pages
+    #   env:
+    #     TO_BRANCH: "gh-pages"
+        
+    # - name: Push to built gh-pages branch
+    #   uses: Automattic/action-commit-to-branch@master
+    #   with:
+    #     branch: 'gh-pages'
+    #     commit_message: 'Success Build from master'
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required
