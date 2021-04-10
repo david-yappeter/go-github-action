@@ -32,8 +32,8 @@ jobs:
     - run: git config --global user.name "$GITHUB_ACTOR"
     - run: git remote -v
     - run: git branch
-    # - run: git add .
-    # - run: git commit -m "push from github action"
+    - run: git add .
+    - run: git commit -m "push from github action"
     - run: git push -u origin gh-pages
     #   env:
     #     TO_BRANCH: "gh-pages"
